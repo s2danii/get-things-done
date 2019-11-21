@@ -17,7 +17,7 @@ class App extends Component {
       userID: '',
       accountType: 'guest',
       date: '',
-      clickAdd: false,
+      isAddClicked: false,
       toDoList: [],
       newItem: {status: false},
     }
@@ -55,6 +55,20 @@ class App extends Component {
 
         this.loadFirebase();
       })
+  }
+
+  // function to handle google user authorization logout
+  logout = () => {
+    auth.signOut()
+    .then(() => {
+      this.setState({
+        user: null,
+        userID: '',
+        accountType: `guest`
+      });
+
+      this.loadFirebase();
+    });
   }
 
   // function to load data from firebase
@@ -95,7 +109,7 @@ class App extends Component {
     event.preventDefault();
     
     this.setState ({
-      clickAdd: !this.state.clickAdd
+      isAddClicked: !this.state.isAddClicked
     });
   }
 
@@ -129,6 +143,24 @@ class App extends Component {
     });
   }
 
+  // function to edit list item
+  handleEdit = (item) => {
+    this.setState ({
+      newItem: item
+    })
+  }
+  
+  // function to save edited item to to-do list
+  handleEditSubmit = (event, key) => {
+    event.preventDefault();
+    const dbRef = firebase.database().ref(this.state.accountType).child(key);
+    dbRef.update(this.state.newItem);
+
+    this.setState ({
+      newItem: {status: false},
+    });
+  }
+
   render () {
     return (
       <div className="App">
@@ -136,19 +168,19 @@ class App extends Component {
           {/* Navigation */}
           <Navigation
           login={this.login}
+          logout={this.logout}
           date={this.state.date}
           accountType={this.state.accountType}/>
 
           <h1>My Day</h1>
-          <p>Hey{this.state.accountType === 'guest'?
-          '': 
-          this.state.user.displayName}, ready to get some things done today?</p>
+          <p>Hey{this.state.accountType === 'guest'? '': 
+          ' ' + this.state.user.displayName}, ready to get some things done today?</p>
 
-          {!this.state.clickAdd && <button className="newItemButton" onClick={this.addButton}>+ Add New</button>}
+          <button className="newItemButton" onClick={this.addButton}>+ Add New</button>
         </header>
 
         {/* Add new item */}
-        {this.state.clickAdd && <AddItemForm
+        {this.state.isAddClicked && <AddItemForm
         closeButton={this.addButton}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}/>}        
@@ -158,9 +190,13 @@ class App extends Component {
           <List 
           toDoList={this.state.toDoList}
           handleCheck={this.handleCheck}
+          handleEdit={this.handleEdit}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleEditSubmit={this.handleEditSubmit}
           listLength={this.state.toDoList.length > 0}
           dbRef={firebase.database().ref(this.state.accountType)}/>
-        </section>       
+        </section> 
       </div>
     )
   }

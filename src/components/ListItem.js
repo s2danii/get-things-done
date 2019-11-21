@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import CheckBox from './CheckBox';
 import DeleteButton from './DeleteButton';
+import ListInfo from './ListInfo';
+import EditList from './EditList';
 
 class ListItem extends Component {
     constructor () {
         super ();
+
+        this.state = {
+            isInEditMode: false,
+        }
+    }
+    
+    changeEditMode = () => {
+        this.setState ({
+            isInEditMode: !this.state.isInEditMode
+        })
+    }
+    
+    doubleClickEdit = (item) => {
+        this.props.handleEdit(item);   
+        this.changeEditMode();
     }
 
     render () {
@@ -12,17 +29,21 @@ class ListItem extends Component {
         let item = this.props.item
 
         return (
-            <div className="listItem">
+            <div className="listItem" onDoubleClick={() => this.doubleClickEdit(item)}>
                 <div className={item.status ? "listLeftWrapper completeItem" : "listLeftWrapper"}>
                     <CheckBox 
                     handleCheck={this.props.handleCheck}
                     index={this.props.index}
                     status={item.status}/>
-                    <div className="listInfo">
-                        <h2>{item.title}</h2>
-                        <p>{item.description}</p>
-                        <p>{item.dueDate}</p>
-                    </div>
+                    {this.state.isInEditMode ?
+                    <EditList
+                    item={item}
+                    handleChange={this.props.handleChange}
+                    handleEditSubmit={this.props.handleEditSubmit}
+                    changeEditMode={this.changeEditMode}/> :
+                    <ListInfo
+                    item={item}/>}
+                    
                 </div>
 
                 <DeleteButton

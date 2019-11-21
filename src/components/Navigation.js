@@ -10,7 +10,7 @@ function Navigation (props) {
                     <li className="logInButton">
                         {props.accountType === 'guest' ? 
                         <a onClick={props.login}>Log In</a> :
-                        <a onClick={props.login}>Log Out</a>}
+                        <a onClick={props.logout}>Log Out</a>}
                     </li>
                 </ul>
 

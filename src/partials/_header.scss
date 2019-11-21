@@ -29,17 +29,19 @@ nav {
     }
 
     ul {
-        width: 80px;
+        padding: 20px;
         position: absolute;
     }
 
-    li {        
+    li {
+        width: 100%;   
         
         a {
             padding: 10px 15px;    
             cursor: pointer;
             border: 2px solid white;
             border-radius: 15px;
+            background: $primary;
         }
     }
 }

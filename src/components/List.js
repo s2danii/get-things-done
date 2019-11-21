@@ -17,7 +17,11 @@ class List extends Component {
                         index={index}
                         item={item}
                         handleCheck={this.props.handleCheck}
+                        handleEdit={this.props.handleEdit}
+                        handleSubmit={this.props.handleSubmit}
                         dbRef={this.props.dbRef}
+                        handleChange={this.props.handleChange}
+                        handleEditSubmit={this.props.handleEditSubmit}
                         />
                     )
                 }): <p className="noItems">No items yet!</p>}

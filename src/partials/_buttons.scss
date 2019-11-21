@@ -19,3 +19,17 @@ button {
     color: $primary;
     font-size: 2rem;
 }
+
+.closeModal {
+    background: white;
+    color: $primary;
+    font-size: 3rem;
+}
+
+.addButton {
+    background: $primary;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+}

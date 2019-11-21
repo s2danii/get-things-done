@@ -6,6 +6,7 @@
     padding: 20px 0;
     margin: 5px 0;
     box-shadow: 5px 5px 5px rgba(165, 165, 165, 0.3);
+    border-radius: 15px;
 
     p {
         margin: 0;
@@ -14,11 +15,10 @@
 
 .listLeftWrapper {
     display: flex;
+    width: 100%;
 }
 
 .listInfo {
-    width: 70%;
-
     h2 + p {
         font-size: 1.8rem;
     }
@@ -55,4 +55,14 @@
     text-align: center;
     font-size: 2rem;
     margin: 60px auto;
+}
+
+.editInfo {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+    input {
+        
+    }
 }
