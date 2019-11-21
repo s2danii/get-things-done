@@ -140,9 +140,9 @@ class App extends Component {
           accountType={this.state.accountType}/>
 
           <h1>My Day</h1>
-          <p>{this.state.accountType === 'guest'?
+          <p>Hey{this.state.accountType === 'guest'?
           '': 
-          this.state.user.displayName + ','} Ready to get some things done today?</p>
+          this.state.user.displayName}, ready to get some things done today?</p>
 
           {!this.state.clickAdd && <button className="newItemButton" onClick={this.addButton}>+ Add New</button>}
         </header>
@@ -154,16 +154,13 @@ class App extends Component {
         handleSubmit={this.handleSubmit}/>}        
 
         {/* List body */}
-        <div className="wrapper listSection">
-          {this.state.toDoList.length > 0 ? 
+        <section className="listSection">
           <List 
           toDoList={this.state.toDoList}
           handleCheck={this.handleCheck}
-          dbRef={firebase.database().ref(this.state.accountType)}/> :
-          <p>No items yet!</p>}
-        </div>
-        
-
+          listLength={this.state.toDoList.length > 0}
+          dbRef={firebase.database().ref(this.state.accountType)}/>
+        </section>       
       </div>
     )
   }

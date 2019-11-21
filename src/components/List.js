@@ -8,17 +8,20 @@ class List extends Component {
 
     render () {
         return (
-            this.props.toDoList.map((item, index) => {
-                return (
-                    <ListItem
-                    key={index}
-                    index={index}
-                    item={item}
-                    handleCheck={this.props.handleCheck}
-                    dbRef={this.props.dbRef}
-                    />
-                )
-            })
+            <div className="wrapper">
+                {this.props.listLength > 0 ?
+                this.props.toDoList.map((item, index) => {
+                    return (
+                        <ListItem
+                        key={index}
+                        index={index}
+                        item={item}
+                        handleCheck={this.props.handleCheck}
+                        dbRef={this.props.dbRef}
+                        />
+                    )
+                }): <p className="noItems">No items yet!</p>}
+            </div>
         );
     }
 }

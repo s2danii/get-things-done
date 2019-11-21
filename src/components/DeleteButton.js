@@ -13,7 +13,7 @@ class DeleteButton extends Component {
 
     render () {
         return (
-            <div>
+            <div className="listDelete">
                 <label htmlFor="deleteButton" className="visuallyHidden">Click button to delete item from To Do List.</label>
                 <button name="deleteButton" className="deleteButton" onClick={(e) => this.deleteItem(e, this.props.itemKey)}><i className="fas fa-trash-alt"></i></button>
             </div>

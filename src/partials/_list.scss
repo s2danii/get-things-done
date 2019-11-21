@@ -1,0 +1,58 @@
+// List styling
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin: 5px 0;
+    box-shadow: 5px 5px 5px rgba(165, 165, 165, 0.3);
+
+    p {
+        margin: 0;
+    }
+}
+
+.listLeftWrapper {
+    display: flex;
+}
+
+.listInfo {
+    width: 70%;
+
+    h2 + p {
+        font-size: 1.8rem;
+    }
+
+    p {
+        margin: 2px 0;
+    }
+}
+
+.checkBox {
+    font-size: 2.5rem;
+    align-self: center;
+    padding: 0 30px;
+    cursor: pointer;
+    color: $primary;
+}
+
+.listDelete {
+    align-self: center;
+}
+
+.completeItem {
+    color: rgb(155, 155, 155);
+}
+
+.listSection {
+    border-radius: 80px 80px 0 0;
+    overflow: hidden;
+    background: white;
+    padding: 50px 0;
+}
+
+.noItems {
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px auto;
+}

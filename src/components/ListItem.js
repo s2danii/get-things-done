@@ -13,16 +13,18 @@ class ListItem extends Component {
 
         return (
             <div className="listItem">
-                <CheckBox 
-                handleCheck={this.props.handleCheck}
-                index={this.props.index}
-                status={item.status}/>
-                <div className="listInfo">
-                    <h2>{item.title}</h2>
-                    <p>{item.description}</p>
-                    <p>{item.status ? 'complete' : 'pending'}</p>
-                    <p>{item.dueDate}</p>
+                <div className={item.status ? "listLeftWrapper completeItem" : "listLeftWrapper"}>
+                    <CheckBox 
+                    handleCheck={this.props.handleCheck}
+                    index={this.props.index}
+                    status={item.status}/>
+                    <div className="listInfo">
+                        <h2>{item.title}</h2>
+                        <p>{item.description}</p>
+                        <p>{item.dueDate}</p>
+                    </div>
                 </div>
+
                 <DeleteButton
                 dbRef={this.props.dbRef}
                 itemKey={item.key}/>
