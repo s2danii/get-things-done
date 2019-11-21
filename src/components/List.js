@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CheckBox from './CheckBox';
+import ListItem from './ListItem';
 
 class List extends Component {
     constructor () {
@@ -8,23 +8,18 @@ class List extends Component {
 
     render () {
         return (
-            this.props.toDoItems.map((item, index) => {
+            this.props.toDoList.map((item, index) => {
                 return (
-                    <div className="listItem" key={index}>
-                        <CheckBox 
-                        handleCheck={this.props.handleCheck}
-                        index={index}
-                        status={item.status}/>
-                        <div className="listInfo">
-                            <h2>{item.title}</h2>
-                            <p>{item.description}</p>
-                            <p>{item.status ? 'complete' : 'pending'}</p>
-                            <p>{item.dueDate}</p>
-                        </div>
-                    </div>
+                    <ListItem
+                    key={index}
+                    index={index}
+                    item={item}
+                    handleCheck={this.props.handleCheck}
+                    dbRef={this.props.dbRef}
+                    />
                 )
             })
-        )
+        );
     }
 }
 

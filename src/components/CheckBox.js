@@ -7,7 +7,7 @@ class CheckBox extends Component {
 
     render () {
         return (
-            <div className="checkBox"onClick={(e) => this.props.handleCheck(e, this.props.index)}>
+            <div className="checkBox" onClick={(e) => this.props.handleCheck(e, this.props.index)}>
                 <i className={this.props.status ? "fas fa-check-circle" :"far fa-circle"}></i>
             </div>
         )

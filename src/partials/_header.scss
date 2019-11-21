@@ -1,0 +1,42 @@
+// header styling
+
+header {
+    background: $primary;
+    color: white;
+    text-align: center;
+    padding: 80px 0 30px;
+
+    h1 + p {
+        font-size: 1.8rem;
+    }
+}
+
+nav {
+    position: fixed;    
+    top: 0;
+    width: 100%;
+    padding: 30px;
+
+    .wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    p {
+        margin: auto;
+    }
+
+    ul {
+        width: 70px;
+    }
+
+    li {
+        
+
+        a {
+        padding: 15px;    
+        cursor: pointer;
+        }
+    }
+}
+
