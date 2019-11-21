@@ -83,6 +83,10 @@ class App extends Component {
         newToDoList.push({...data[key], key: key});
       }
 
+      newToDoList.sort(function(a, b) {
+        return new Date(a.dueDate) - new Date(b.dueDate)
+      });
+
       this.setState ({
         toDoList: newToDoList
       })       
@@ -122,13 +126,21 @@ class App extends Component {
     if (name === 'dueDate') {
       let newDate = new Date(value);
       value = newDate.toDateString();
-    } 
+    }
     
     newItem[`${name}`] = value
+
+    this.defaultDate(newItem);
 
     this.setState ({
       newItem,
     });
+  }
+
+  defaultDate = (newItem) => {
+    if (!newItem.dueDate) {
+      newItem.dueDate = this.state.date
+    }
   }
 
   // function to submit new item to to-do list
