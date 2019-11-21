@@ -177,7 +177,8 @@ class App extends Component {
           <p>Hey{this.state.accountType === 'guest'? '': 
           ' ' + this.state.user.displayName}, ready to get some things done today?</p>
 
-          <button className="newItemButton" onClick={this.addButton}>+ Add New</button>
+          <label htmlFor="newItemButton" className="visuallyHidden">Click button to add new item to To Do list.</label>
+          <button name="newItemButton" className="newItemButton" onClick={this.addButton}>+ Add New</button>
         </header>
 
         {/* Add new item */}
@@ -199,8 +200,8 @@ class App extends Component {
           listLength={this.state.toDoList.length > 0}
           dbRef={firebase.database().ref(this.state.accountType)}/>
         </section>
-
-        <button className="bottomAddButton" onClick={this.addButton}><i className="fas fa-plus"></i></button>
+        <label htmlFor="bottomAddButton" className="visuallyHidden">Click button to add new item to To Do list.</label>
+        <button name="bottomAddButton" className="bottomAddButton" onClick={this.addButton}><i className="fas fa-plus"></i></button>
       </div>
     )
   }

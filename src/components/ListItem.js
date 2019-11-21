@@ -29,7 +29,7 @@ class ListItem extends Component {
         let item = this.props.item
 
         return (
-            <div className="listItem" onDoubleClick={() => this.doubleClickEdit(item)}>
+            <div className="listItem" title="Double click to edit" onDoubleClick={() => this.doubleClickEdit(item)}>
                 <div className={item.status ? "listLeftWrapper completeItem" : "listLeftWrapper"}>
                     <CheckBox 
                     handleCheck={this.props.handleCheck}

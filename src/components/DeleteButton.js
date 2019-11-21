@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class DeleteButton extends Component {
-    constructor () {
-        super ();
+function DeleteButton (props) {
+    const deleteItem = (event, key) => {
+        event.preventDefault();       
+        props.dbRef.child(key).remove();
     }
-
-    deleteItem = (event, key) => {
-        event.preventDefault();
-        
-        this.props.dbRef.child(key).remove();
-    }
-
-    render () {
-        return (
-            <div className="listDelete">
-                <label htmlFor="deleteButton" className="visuallyHidden">Click button to delete item from To Do List.</label>
-                <button name="deleteButton" className="deleteButton" onClick={(e) => this.deleteItem(e, this.props.itemKey)}><i className="fas fa-trash-alt"></i></button>
-            </div>
-        );
-    }
+    
+    return (
+        <div className="listDelete">
+            <label htmlFor="deleteButton" className="visuallyHidden">Click button to delete item from To Do List.</label>
+            <button name="deleteButton" className="deleteButton" onClick={(e) => deleteItem(e, props.itemKey)}><i className="fas fa-trash-alt"></i></button>
+        </div>
+    );
 }
 
 export default DeleteButton;
