@@ -9,6 +9,7 @@ function EditList (props) {
 
     return (
         <div className="listInfo editInfo">
+            <h2>Edit Item</h2>
             <form onSubmit={(e) => saveEdit(e)}>
                 {/* Title input field */}
                 <label htmlFor="title" className="visuallyHidden">Enter a title for the task.</label>
@@ -31,7 +32,10 @@ function EditList (props) {
                 className="dueDate"
                 name="dueDate"
                 onChange={props.handleChange}/>
-                <button className="addButton">Save</button>
+                <div className="buttons">
+                    <button className="addButton">Save</button>
+                    <button className="addButton cancelButton" onClick={props.changeEditMode}>Cancel</button>
+                </div>
             </form>
         </div>
     )

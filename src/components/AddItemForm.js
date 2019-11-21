@@ -18,6 +18,7 @@ class AddItemForm extends Component {
                         name="title"
                         className="title"
                         placeholder="Title"
+                        required
                         onChange={this.props.handleChange}/>
                         {/* Description input field */}
                         <label htmlFor="description" className="visuallyHidden">Enter a task description.</label>

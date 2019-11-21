@@ -42,7 +42,8 @@ class ListItem extends Component {
                     handleEditSubmit={this.props.handleEditSubmit}
                     changeEditMode={this.changeEditMode}/> :
                     <ListInfo
-                    item={item}/>}
+                    item={item}
+                    date={this.props.date}/>}
                     
                 </div>
 

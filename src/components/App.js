@@ -140,6 +140,7 @@ class App extends Component {
 
     this.setState ({
       newItem: {status: false},
+      isAddClicked: !this.state.isAddClicked
     });
   }
 
@@ -189,6 +190,7 @@ class App extends Component {
         <section className="listSection">
           <List 
           toDoList={this.state.toDoList}
+          date={this.state.date}
           handleCheck={this.handleCheck}
           handleEdit={this.handleEdit}
           handleChange={this.handleChange}
@@ -196,7 +198,9 @@ class App extends Component {
           handleEditSubmit={this.handleEditSubmit}
           listLength={this.state.toDoList.length > 0}
           dbRef={firebase.database().ref(this.state.accountType)}/>
-        </section> 
+        </section>
+
+        <button className="bottomAddButton" onClick={this.addButton}><i className="fas fa-plus"></i></button>
       </div>
     )
   }

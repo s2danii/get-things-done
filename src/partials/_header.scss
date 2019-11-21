@@ -9,6 +9,10 @@ header {
     h1 + p {
         font-size: 1.8rem;
     }
+
+    @media (max-width: 640px) {
+        padding: 180px 0 80px;
+    }
 }
 
 nav {
@@ -22,6 +26,11 @@ nav {
     .wrapper {
         display: flex;
         justify-content: flex-end;
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 
     p {
@@ -31,6 +40,11 @@ nav {
     ul {
         padding: 20px;
         position: absolute;
+        right: 50px;
+
+        @media (max-width: 640px) {
+            position: static;
+        }
     }
 
     li {

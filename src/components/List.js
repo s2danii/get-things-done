@@ -16,6 +16,7 @@ class List extends Component {
                         key={index}
                         index={index}
                         item={item}
+                        date={this.props.date}
                         handleCheck={this.props.handleCheck}
                         handleEdit={this.props.handleEdit}
                         handleSubmit={this.props.handleSubmit}

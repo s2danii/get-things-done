@@ -20,7 +20,10 @@ body {
     width: 70%;
     max-width: 1280px;
     margin: 0 auto;
-    // border: 2px solid tomato;
+    
+    @media (max-width: 640px) {
+        width: 85%;
+    }
 }
 
 h1,
@@ -28,8 +31,6 @@ h2,
 h3,
 h4 {
     margin: 0;
-    // color: $blue;
-//     font-family: 'Poppins', sans-serif;
 }
 
 ul {

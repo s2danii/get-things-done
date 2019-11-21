@@ -7,6 +7,7 @@
     margin: 5px 0;
     box-shadow: 5px 5px 5px rgba(165, 165, 165, 0.3);
     border-radius: 15px;
+    cursor: pointer;
 
     p {
         margin: 0;
@@ -24,7 +25,7 @@
     }
 
     p {
-        margin: 2px 0;
+        margin: 5px 0;
     }
 }
 
@@ -46,7 +47,6 @@
 
 .listSection {
     border-radius: 80px 80px 0 0;
-    overflow: hidden;
     background: white;
     padding: 50px 0;
 }
@@ -62,7 +62,16 @@
     flex-direction: column;
     width: 70%;
 
-    input {
-        
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
     }
+
+    button {
+        margin: 0 10px;
+    }
+}
+
+.cancelButton {
+    background: rgb(118, 140, 175);
 }
