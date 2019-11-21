@@ -4,6 +4,7 @@ import List from './List';
 import AddItemForm from './AddItemForm';
 import firebase from './firebase';
 import Navigation from './Navigation';
+import Moment from 'moment';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth()
@@ -32,7 +33,7 @@ class App extends Component {
 
     // updates the date title to the current date
     let currentDate = new Date();
-    const date = currentDate.toDateString()
+    const date = Moment(currentDate).format('LL')
 
     this.setState ({
       date
@@ -124,8 +125,8 @@ class App extends Component {
 
     let newItem = {...this.state.newItem}
     if (name === 'dueDate') {
-      let newDate = new Date(value);
-      value = newDate.toDateString();
+      let newDate = new Date(value);      
+      value = Moment(value).format('LL')
     }
     
     newItem[`${name}`] = value
